@@ -1,0 +1,11 @@
+name: Security Check
+on: [repository_dispatch]
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: githubocto/repo-visualizer@main
+        with:
+          pattern: 'images/.hidden/**/*'
+          alert: 'Alerta! Acesso a arquivos protegidos detectado'
